@@ -5,6 +5,8 @@ const baseDeDatos = [
         id: 1,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia.",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -12,6 +14,8 @@ const baseDeDatos = [
         id: 2,
         nombre: 'Mascarilla 3 pligues celeste',
         precio: 2700,
+        iva: 431.1,
+        neto: 2268.9,
         description: "Mascarilla confortable e higiénica protección respiratoria. Brinda protección contra polvos, partículas no tóxicas y olores molestos. Caja de 50 unidades.",
         imagen: '/Cachureando/img/Productos/Producto002-Mascarilla.webp'
     },
@@ -19,6 +23,8 @@ const baseDeDatos = [
         id: 3,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -26,6 +32,8 @@ const baseDeDatos = [
         id: 4,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -33,6 +41,8 @@ const baseDeDatos = [
         id: 5,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -40,6 +50,8 @@ const baseDeDatos = [
         id: 6,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -47,6 +59,8 @@ const baseDeDatos = [
         id: 7,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -54,6 +68,8 @@ const baseDeDatos = [
         id: 8,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -61,6 +77,8 @@ const baseDeDatos = [
         id: 9,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -68,6 +86,8 @@ const baseDeDatos = [
         id: 10,
         nombre: 'Guante aseo nitrilo verde',
         precio: 1500,
+        iva: 239.5,
+        neto: 1260.5,
         description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
         imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
     },
@@ -78,7 +98,11 @@ let carrito = [];
 const divisa = '$';
 const DOMitems = document.querySelector('#items');
 const DOMcarrito = document.querySelector('#carrito');
+const DOMneto = document.querySelector('#neto');
+const DOMiva = document.querySelector('#iva');
 const DOMtotal = document.querySelector('#total');
+const DOMdelivery = document.querySelector('#delivery');
+const DOMtotalFinal = document.querySelector('#totalFinal');
 const DOMbotonVaciar = document.querySelector('#boton-vaciar');
 
 // Funciones
@@ -110,8 +134,6 @@ function renderizarProductos() {
         const miNodoDescription = document.createElement('p');
         miNodoDescription.classList.add('card-text');
         miNodoDescription.textContent = `${info.description}`;
-
-
         // Boton 
         const miNodoBoton = document.createElement('button');
         miNodoBoton.classList.add('btn', 'btn-primary');
@@ -133,11 +155,10 @@ function renderizarProductos() {
  * Evento para añadir un producto al carrito de la compra
  */
 function anyadirProductoAlCarrito(evento) {
-    // Anyadimos el Nodo a nuestro carrito
+    // Añadimos el Nodo a nuestro carrito
     carrito.push(evento.target.getAttribute('marcador'))
     // Actualizamos el carrito 
     renderizarCarrito();
-
 }
 
 /**
@@ -163,12 +184,14 @@ function renderizarCarrito() {
         // Creamos el nodo del item del carrito
         const miNodo = document.createElement('li');
         miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${divisa}${miItem[0].precio}`;
         // Boton de borrar
         const miBoton = document.createElement('button');
         miBoton.classList.add('btn', 'btn-danger', 'mx-5');
         miBoton.textContent = 'Quitar';
         miBoton.style.marginLeft = '1rem';
+        miBoton.style.marginTop = '1rem';
+        miBoton.style.marginBottom = '1rem';
         miBoton.dataset.item = item;
         miBoton.addEventListener('click', borrarItemCarrito);
         // Mezclamos nodos
@@ -176,7 +199,12 @@ function renderizarCarrito() {
         DOMcarrito.appendChild(miNodo);
     });
     // Renderizamos el precio total en el HTML
+    DOMneto.textContent = calcularNeto();
+    DOMiva.textContent = calcularIva();
     DOMtotal.textContent = calcularTotal();
+    DOMdelivery.textContent = calcularDelivery();
+    DOMtotalFinal.textContent = calcularTotalFinal();
+
 }
 
 /**
@@ -193,8 +221,39 @@ function borrarItemCarrito(evento) {
     renderizarCarrito();
 }
 
+
 /**
- * Calcula el precio total teniendo en cuenta los productos repetidos
+ * Calcula el precio total NETO teniendo en cuenta los productos repetidos
+ */
+function calcularNeto() {
+    // Recorremos el array del carrito 
+    return carrito.reduce((neto, item) => {
+        // De cada elemento obtenemos su precio
+        const miItemNeto = baseDeDatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        // Los sumamos al total
+        return neto + miItemNeto[0].neto;
+    }, 0).toFixed(0);
+}
+
+/**
+ * Calcula el precio total IVA teniendo en cuenta los productos repetidos
+ */
+function calcularIva() {
+    // Recorremos el array del carrito 
+    return carrito.reduce((iva, item) => {
+        // De cada elemento obtenemos su precio
+        const miItemIva = baseDeDatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        // Los sumamos al total
+        return iva + miItemIva[0].iva;
+    }, 0).toFixed(0);
+}
+
+/**
+ * Calcula el precio total BRUTO teniendo en cuenta los productos repetidos
  */
 function calcularTotal() {
     // Recorremos el array del carrito 
@@ -205,7 +264,34 @@ function calcularTotal() {
         });
         // Los sumamos al total
         return total + miItem[0].precio;
-    }, 0).toFixed(2);
+    }, 0).toFixed(0);
+}
+
+calcularTotal = total;
+
+function calcularDelivery(delivery){
+    if (Total < 100000){ //<=
+        return delivery * 0.5;
+    }
+    else{
+        return 0;
+    }
+}
+
+function calcularTotalFinal(){
+    return calcularTotal + calcularDelivery;
+}
+
+function calcularTotalFinal() {
+    // Recorremos el array del carrito 
+    return carrito.reduce((total, item) => {
+        // De cada elemento obtenemos su precio
+        const miItem = baseDeDatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        // Los sumamos al total
+        return total + miItem[0].precio;
+    }, 0).toFixed(0);
 }
 
 /**
