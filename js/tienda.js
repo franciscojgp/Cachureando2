@@ -104,6 +104,7 @@ const DOMtotal = document.querySelector('#total');
 const DOMdelivery = document.querySelector('#delivery');
 const DOMtotalFinal = document.querySelector('#totalFinal');
 const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+const DOMbotonComprar = document.querySelector('#boton-comprar');
 
 // Funciones
 
@@ -234,7 +235,7 @@ function calcularNeto() {
         });
         // Los sumamos al total
         return neto + miItemNeto[0].neto;
-    }, 0).toFixed(0);
+    }, 0).toFixed(0);//agrega decimales.
 }
 
 /**
@@ -249,7 +250,7 @@ function calcularIva() {
         });
         // Los sumamos al total
         return iva + miItemIva[0].iva;
-    }, 0).toFixed(0);
+    }, 0).toFixed(0);//agrega decimales.
 }
 
 /**
@@ -264,22 +265,16 @@ function calcularTotal() {
         });
         // Los sumamos al total
         return total + miItem[0].precio;
-    }, 0).toFixed(0);
+    }, 0).toFixed(0);//agrega decimales.
 }
 
-calcularTotal = total;
-
-function calcularDelivery(delivery){
-    if (Total < 100000){ //<=
-        return delivery * 0.5;
+function calcularDelivery(total){
+    if (total < 100000){    //<= menor ó igual.
+        return 0.05*total;
     }
     else{
         return 0;
     }
-}
-
-function calcularTotalFinal(){
-    return calcularTotal + calcularDelivery;
 }
 
 function calcularTotalFinal() {
@@ -302,6 +297,10 @@ function vaciarCarrito() {
     carrito = [];
     // Renderizamos los cambios
     renderizarCarrito();
+}
+
+function comprarCarrito() {
+
 }
 
 // Eventos

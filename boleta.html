@@ -2,7 +2,7 @@
 <html>
 
 <head meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto | Cachureando</title>
+  <title>Boleta-pago | Cachureando</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
@@ -41,33 +41,53 @@
   <center><section class="container">
     <article class="post">
       <center>
-        <h1>Formulario de Contacto</h1>
+        <br /><br />
+        <h1>Información para pago</h1>
       </center>
       <section>
         <p>
-          Si tienes cualquier pregunta o comentario sobre nuestros productos,
-          no dude en ponerse en contacto con nosotros.
+          Favor rellenar los siguientes datos para procesar tu pago.
         </p>
       </section>
       <br />
       <center>
         <label for="nombre">Nombre:</label>
-        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre" />
+        <input class="controls" type="text" id="nombres" placeholder="Ingrese su Nombre" />
         <br /><br />
         <label for="nombre">Apellidos:</label>
-        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido" />
+        <input class="controls" type="text" id="apellidos" placeholder="Ingrese su Apellido" />
+        <br /><br />
+        <label for="nombre">Dirección:</label>
+        <input class="controls" type="email" id="dirección" placeholder="Avenida Calle N°5555" />
+        <br /><br />
+        <label for="nombre">Ciudad:</label>
+        <input class="controls" type="email" id="ciudad" placeholder="Ingrese su ciudad" />
+        <br /><br />
+        <label for="nombre">Región:</label>
+        <input class="controls" type="email" id="región" placeholder="Ingrese su región" />
         <br /><br />
         <label for="nombre">Correo:</label>
-        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo" />
+        <input class="controls" type="email" id="correo" placeholder="correo@ejemplo.cl" />
         <br /><br />
-        <label id="palabraComentario" for="nombre">Comentario:</label><br />
-        <textarea name="comentario" id="comentario" placeholder="Ingrese comentario" cols="30" rows="10"></textarea>
+        <button type="button" class="col-sm-2 row btn btn-primary" onclick="generarBoleta()">Generar boleta</button>
         <br /><br />
-        <button id="miBoton" class="col-sm-2 row btn btn-primary" type="submit">Enviar formulario</button>
-        <p id="mostarTexto"></p>
       </center>
     </article>
   </section></center>
+  
+
+  <center><section class="container">
+    <article class="post">
+      
+        <br /><br />
+        <div align="left" id="boleta"></div>
+        <div align="left" id="carrito"></div>
+  <br /><br />
+
+</article>
+</section></center>
+
+
 
   <br /><br /><br /><br />
   <footer>
@@ -79,7 +99,10 @@
   </footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="/js/main.js" type="text/javascript"></script>
+  <script src="/Cachureando/js/main.js" type="text/javascript"></script>
+  <script src="/Cachureando/js/tienda.js" type="text/javascript"></script>
+  <script src="/Cachureando/js/boleta.js" type="text/javascript"></script>
+
 </body>
 
 </html>
