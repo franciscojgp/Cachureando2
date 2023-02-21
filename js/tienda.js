@@ -155,6 +155,7 @@ function renderizarProductos() {
 /**
  * Evento para añadir un producto al carrito de la compra
  */
+
 function anyadirProductoAlCarrito(evento) {
     // Añadimos el Nodo a nuestro carrito
     carrito.push(evento.target.getAttribute('marcador'))
@@ -165,6 +166,7 @@ function anyadirProductoAlCarrito(evento) {
 /**
  * Dibuja todos los productos guardados en el carrito
  */
+
 function renderizarCarrito() {
     // Vaciamos todo el html
     DOMcarrito.textContent = '';
@@ -269,7 +271,7 @@ function calcularTotal() {
 }
 
 function calcularDelivery(total){
-    if (total < 100000){    //<= menor ó igual.
+    if (total < 100000){    // <menor, <= menor ó igual.
         return 0.05*total;
     }
     else{

@@ -41,12 +41,13 @@
   <center><section class="container">
     <article class="post">
       <center>
+        <br><br>
         <h1>Formulario de Contacto</h1>
       </center>
       <section>
         <p>
           Si tienes cualquier pregunta o comentario sobre nuestros productos,
-          no dude en ponerse en contacto con nosotros.
+          no dudes en ponerte en contacto con nosotros.
         </p>
       </section>
       <br />
@@ -63,8 +64,8 @@
         <label id="palabraComentario" for="nombre">Comentario:</label><br />
         <textarea name="comentario" id="comentario" placeholder="Ingrese comentario" cols="30" rows="10"></textarea>
         <br /><br />
-        <button id="miBoton" class="col-sm-2 row btn btn-primary" type="submit">Enviar formulario</button>
-        <p id="mostarTexto"></p>
+        <button class="col-sm-2 row btn btn-primary" onclick="sendMail()" type="submit">Enviar mensaje</button>
+        <br><br><br>
       </center>
     </article>
   </section></center>
@@ -79,7 +80,18 @@
   </footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="/js/main.js" type="text/javascript"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+  <script src="js/contacto.js" type="text/javascript"></script>
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("NPts6TPC8_EL7A8oR");
+   })();
+</script>
+
 </body>
 
 </html>

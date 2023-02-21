@@ -1,80 +1,63 @@
-// import { carrito } from './tienda';
+// FORMA 1
+//Para importar función carrito. 
+//Esta era una forma. Pero me arrojaba error en la consola en "tienda.js" y no me mostraba los productos en html.
 
-function generarBoleta() {
+// import { renderizarProductos } from './tienda.js';
+// import { anyadirProductoAlCarrito } from './tienda.js';
+// import { renderizarCarrito } from './tienda.js'
+// import { calcularNeto } from './tienda.js'
+// import { calcularIva } from './tienda.js'
+// import { calcularTotal } from './tienda.js'
+// import { calcularDelivery } from './tienda.js'
+// import { calcularTotalFinal } from './tienda.js'
 
-    // PRIMERA PARTE: DATOS COMPRADOR.
-    // Obtener valores de los campos de texto
-    const nombres = document.getElementById('nombres').value;
-    const apellidos = document.getElementById('apellidos').value;
-    const dirección = document.getElementById('dirección').value;
-    const ciudad = document.getElementById('ciudad').value;
-    const región = document.getElementById('región').value;
-    const correo = document.getElementById('correo').value;
+// renderizarProductos();
+// anyadirProductoAlCarrito();
+// renderizarCarrito();
+// calcularNeto();
+// calcularIva();
+// calcularTotal();
+// calcularDelivery();
+// calcularTotalFinal();
 
-    // Generar el contenido información comprador de la boleta
-    const boletaHTML = `
-      <h1><center>Boleta Electrónica</center></h1><br>
-      <p><strong>Nombre:</strong> ${nombres} ${apellidos}</p>
-      <p><strong>Dirección:</strong> ${dirección}</p>
-      <p><strong>Ciudad:</strong> ${ciudad}</p>
-      <p><strong>Región:</strong> ${región}</p>
-      <p><strong>Correo electrónico:</strong> ${correo}</p><br><br>
-    `;
-
-    // Mostrar la boleta en el documento HTML
-    const boletaDiv = document.getElementById('boleta');
-    boletaDiv.innerHTML = boletaHTML;
-    
-
-    // SEGUNDA PARTE: DATOS DEL CARRITO, DETALLE DE COMPRA.
-
-    // Obtener valores acer del tienda.js
-    // Generar el contenido del carrito de la compra en la boleta.
-    const carritoHTML = `
-    <h3><strong>Detalle compra:</strong></h3><br>
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">id</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Producto</th>
-      <th scope="col">Precio Neto</th>
-      <th scope="col">Total Neto</th>
-    </tr>
-  </thead>
+// FORMA 2
+// buscar elementosPara CLONAR DIV. 
+const divParaClonar = document.getElementById("datosCarrito");
+// Clonar el elemento y si es false solo clona el primer nodo.
+const divClonado = divParaClonar.cloneNode(true);
+// Modificar el contenido del div clonado  o mostrar como uno quiera.
+divClonado.querySelector("p").textContent = "datosCarrito";
+// Agregar el elemento clonado al DOM
+document.body.appendChild(divClonado);
 
 
-  <tbody id="boleta-detalles">
+//Para enviar boleta a correo cliente.
+function sendBoleta(){
+  var params = {
+      name: document.getElementById("nombres").value ,
+      apellidos: document.getElementById("apellidos").value ,
+      dirección: document.getElementById("dirección").value ,
+      ciudad: document.getElementById("ciudad").value ,
+      región: document.getElementById("región").value ,
+      correo: document.getElementById("correo"). value ,
+  };
 
-  </tbody>
+const serviceID = "service_3rm1oxe";
+const templateID = "template_qnx66is";
 
+emailjs
+.send(serviceID, templateID, params)
+.then((res) =>{
+      document.getElementById("nombres").value = "";
+      document.getElementById("apellidos").value = "";
+      document.getElementById("dirección").value = "";
+      document.getElementById("ciudad").value = "";
+      document.getElementById("región").value ="";
+      document.getElementById("correo").value = "";
+      console.log(res);
+      alert("Tú boleta ha sido generada y enviada a tu correo exitosamente.");
+  })
 
-  <tfoot align="right">
-      <tr><br>
-        <td colspan="5">Total neto:</td>
-        <td id="total-neto"></td>
-      </tr>
-      <tr>
-        <td colspan="5">IVA (19%):</td>
-        <td id="iva"></td>
-      </tr>
-      <tr>
-        <td colspan="5"><strong>Total bruto:</strong></td>
-        <td id="total-bruto"><strong></strong></td>
-      </tr>
-    </tfoot>
-</table>
-  `;
+.catch((err) => console.log(err));
+}
 
-// Ejemplo anterior
-//   <p><strong>Nombre:</strong> ${nombres} ${apellidos}</p>
-//   <p><strong>Dirección:</strong> ${dirección}</p>
-//   <p><strong>Ciudad:</strong> ${ciudad}</p>
-//   <p><strong>Región:</strong> ${región}</p>
-//   <p><strong>Correo electrónico:</strong> ${correo}</p>
-
-    // Mostrar la boleta en el documento HTML
-    const carritoDiv = document.getElementById('carrito');
-    carritoDiv.innerHTML = carritoHTML;
-  }
