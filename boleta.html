@@ -50,6 +50,7 @@
       <center>
         <div class="container">
           <div class="row">
+            
             <!-- Formulario -->
             <main class="col-sm-6 row"> 
             <article>
@@ -80,26 +81,22 @@
             </main>
 
             <!-- Carrito -->
-            <aside class="col-sm-6 row">
-            <article>
-            <br>
-            <p><h5>Carrito</h5></p>
-            <!-- Elementos del carrito -->
-            <ul id="carrito" class="list-group"></ul>
-            <hr>
-            <!-- Precio total -->
-            <p class="text-right" margin="0">Valor neto: &dollar;<span id="neto"></span></p>
-            <p class="text-right">IVA: &dollar;<span id="iva"></span></p>
-            <hr>
+              <aside class="col-sm-6 row">
+                <article>
+                <br>
+                <p><h5>Carrito</h5></p>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <div  id="div-original">
+                  <!--aqui se deberían agregar los divs clonados del carrito-->
+                </div>
+                <br><br><br><br><br><br><br>
+                </article>
+              </aside>
+            
 
-            <p class="text-right"><strong>Valor total: &dollar;<span id="total"></span></strong></p>
-            <p class="text-right">Delivery (5%): &dollar;<span id="delivery"></span></p>
-            <hr>
-
-            <p class="text-right"><strong> Total Final: &dollar;<span id="totalFinal"></span></strong></p>
-            <br><br><br><br><br><br><br>
-            </article>
-            </aside>
           </div>
         </div>
       </center>
@@ -119,7 +116,7 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="/Cachureando/js/main.js" type="text/javascript"></script>
-  <script src="/Cachureando/js/tienda.js" type="text/javascript"></script>
+  <script src="js/tienda.js" type="text/javascript"></script>
   <script src="/Cachureando/js/boleta.js" type="text/javascript"></script>
 
   <script type="text/javascript"

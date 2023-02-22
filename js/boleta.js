@@ -1,35 +1,3 @@
-// FORMA 1
-//Para importar función carrito. 
-//Esta era una forma. Pero me arrojaba error en la consola en "tienda.js" y no me mostraba los productos en html.
-
-// import { renderizarProductos } from './tienda.js';
-// import { anyadirProductoAlCarrito } from './tienda.js';
-// import { renderizarCarrito } from './tienda.js'
-// import { calcularNeto } from './tienda.js'
-// import { calcularIva } from './tienda.js'
-// import { calcularTotal } from './tienda.js'
-// import { calcularDelivery } from './tienda.js'
-// import { calcularTotalFinal } from './tienda.js'
-
-// renderizarProductos();
-// anyadirProductoAlCarrito();
-// renderizarCarrito();
-// calcularNeto();
-// calcularIva();
-// calcularTotal();
-// calcularDelivery();
-// calcularTotalFinal();
-
-// FORMA 2
-// buscar elementosPara CLONAR DIV. 
-const divParaClonar = document.getElementById("datosCarrito");
-// Clonar el elemento y si es false solo clona el primer nodo.
-const divClonado = divParaClonar.cloneNode(true);
-// Modificar el contenido del div clonado  o mostrar como uno quiera.
-divClonado.querySelector("p").textContent = "datosCarrito";
-// Agregar el elemento clonado al DOM
-document.body.appendChild(divClonado);
-
 
 //Para enviar boleta a correo cliente.
 function sendBoleta(){

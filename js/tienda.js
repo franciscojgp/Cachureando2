@@ -1,3 +1,16 @@
+// PARA CLONAR DIV CARRITO A HTML BOLETA.
+  function clonarDiv() {
+    // Obtener el div original por su id
+    const divOriginal = document.getElementById('div-original');
+    
+    // Clonar el div con su contenido
+    const divClonado = divOriginal.cloneNode(true);
+    
+    // Agregar el div clonado al contenedor en el otro archivo HTML
+    const contenedorClonado = window.opener.document.getElementById('contenedor-clonado');
+    contenedorClonado.appendChild(divClonado);
+  }
+  
 
 // Variables
 const baseDeDatos = [
@@ -21,75 +34,75 @@ const baseDeDatos = [
     },
     {
         id: 3,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Pastilla para inodoro',
+        precio: 2890,
+        iva: 461,
+        neto: 2429,
+        description: "Pastilla para inodoro limpia profundamente y previene el sarro. Vienen 2 unidades por envase.",
+        imagen: '/Cachureando/img/Productos/Producto003-PastillaInodoro.jpg'
     },
     {
         id: 4,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Basurero Cromado Plateado',
+        precio: 3590,
+        neto: 573,
+        iva: 3017,
+        description: "Basurero cromado plateado, 1 unidad, con capacidad para 3 litros y pedal para abrir la tapa superior. Tiene una altura de 25cm y 17cm de ancho.",
+        imagen: '/Cachureando/img/Productos/Producto004-BasureroMetalico.jpg'
     },
     {
         id: 5,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Escobilla Limpia Sanitario',
+        precio: 7790,
+        iva: 1244,
+        neto: 6546,
+        description: "Escobilla Limpia Sanitario Con Base De Esquina, 1 unidad, posee puntas reforzadas y fibras más resistentes.",
+        imagen: '/Cachureando/img/Productos/Producto005-EscobillaBaño.jpg'
     },
     {
         id: 6,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Sopapo Para Baños Inodoro',
+        precio: 7550,
+        iva: 1205,
+        neto: 6345,
+        description: "Sopapo para baño clásico, marca Virutex, 1 unidad. Ideal para una mayor higiene, no retiene olores.",
+        imagen: '/Cachureando/img/Productos/Producto006-Sopapo.jpg'
     },
     {
         id: 7,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Toalla de Limpieza Multiuso',
+        precio: 3670,
+        iva: 586,
+        neto: 3084,
+        description: "Toalla de Limpieza Multiuso Limón, 90 Un, marca Virutex. Es de multiuso, ideal para superficies lavables, superficies de cocina, baño, escritorios.",
+        imagen: '/Cachureando/img/Productos/Producto007-ToallaLimpieza.jpg'
     },
     {
         id: 8,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Paño Multiuso',
+        precio: 3050,
+        iva: 487,
+        neto: 2563,
+        description: "Paño de multiuso para limpieza profunda, marca Virutex, envase de 3 unidades. Remueve fácilmente la suciedad adherida.",
+        imagen: '/Cachureando/img/Productos/Producto008-PañoLimpieza.jpg'
     },
     {
         id: 9,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Limpiador para pisos',
+        precio: 2390,
+        iva: 382,
+        neto: 2008,
+        description: "Limpiador Líquido Desinfectante Pisos Concentrado Botella Original, 800 ml. Mata virus y bacterias en superficies duras. Elimine los olores desagradables del hogar.",
+        imagen: '/Cachureando/img/Productos/Producto009-DesinfectantePiso.jpg'
     },
     {
         id: 10,
-        nombre: 'Guante aseo nitrilo verde',
-        precio: 1500,
-        iva: 239.5,
-        neto: 1260.5,
-        description: "Los guantes con excelente barrera de protección biológica y química. Es de categoría premium cuyo uso se extiende al área clínica, farmacéutica, industrial y alimenticia",
-        imagen: '/Cachureando/img/Productos/Producto001-Guantes.jpg'
+        nombre: 'Pack 2 Detergentes Líquido',
+        precio: 29590,
+        iva: 4724,
+        neto: 24866,
+        description: "Potente detergente líquido de 3 litros. Pack de 2 unidades. Remueve manchas díficiles",
+        imagen: '/Cachureando/img/Productos/Producto010-Pack2detergente.jpg'
     },
 
 ];

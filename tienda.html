@@ -64,8 +64,8 @@
                   <ul id="carrito" class="list-group"></ul>
                   <hr>
 
-                  <!-- Precio total -->
-                  <div id = "datosCarrito">
+                <!-- Precio total -->
+                <div id="contenedor-clonado">
                   <p class="text-right" margin="0">Valor neto: &dollar;<span id="neto"></span></p>
                   <p class="text-right">IVA: &dollar;<span id="iva"></span></p>
                   <hr>
@@ -85,13 +85,11 @@
                     <div class="text-center mb-3">
                         <div class="fw-bolder">Envío de formulario exitoso!</div>
                     </div>
-
-                
                 </div>
                 <!--si el pago es exito poder ver la boleta-->
                
                 <form method="get" action="boleta.html">
-                <button id="boton-comprar" class="col-sm-3 row btn btn-success" type="boleta.html" >Comprar</button>
+                <button id="boton-comprar" class="col-sm-3 row btn btn-success" type="boleta.html" onclick="clonarDiv()" >Comprar</button>
               </form>
 
                 <!--cuando el pago es erroneo dado que no tiene datos en carrito-->
